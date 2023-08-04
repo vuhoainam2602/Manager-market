@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>CityMart: Nơi mua sắm đáng tin cậy – Bạn của mọi nhà</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" th:href="@{/assets/vendor/icon-set/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/theme.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/vendor.min.css}">
+    <script src="https://cdn.tiny.cloud/1/0cvgyq8htwfa5cldcb7inwo3d6meev709oz5fuwnlml6q7iz/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <link rel="stylesheet" type="text/css" id="mce-u0" referrerpolicy="origin"
+          href="https://cdn.tiny.cloud/1/0cvgyq8htwfa5cldcb7inwo3d6meev709oz5fuwnlml6q7iz/tinymce/5.10.4-130/skins/ui/oxide/skin.min.css">
+    <style>
+        .nav-compact{
+            padding-left: 20px;
+            text-align: start!important;
+            -ms-flex-align:center;
+            align-items:start!important;
+        }
+    </style>
+</head>
+
+<body class="footer-offset footer-offset has-navbar-vertical-aside navbar-vertical-aside-show-xl">
+<header id="header"
+        class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-flush navbar-container navbar-bordered">
+    <div class="navbar-nav-wrap">
+        <div class="navbar-brand-wrapper">
+            <!-- Logo -->
+            <a class="navbar-brand" href="" aria-label="Front">
+                <img class="navbar-brand-logo" th:src="@{/assets/img/logo.jpg}" alt="Logo" />
+                <img class="navbar-brand-logo-mini" th:src="@{/assets/img/logo.jpg}" alt="Logo" />
+            </a>
+            <!-- End Logo -->
+        </div>
+        <div class="navbar-nav-wrap-content-left menu-head">
+
+            <!-- {{-- <div class="hs-unfold mr-2 " title="Tạo mới sitemap.xml" id="importFileKml">--}}
+                {{-- <a class="js-hs-unfold-invoker btn btn-icon btn-icon-head btn-ghost-secondary rounded-circle" --}} {{--
+                    target="_blank" --}} {{-- href="{{Request::root().'/rd/xml/a/genrate-sitemap'}}">--}}
+                    {{-- <img class="avatar avatar-xs avatar-4by3" --}} {{--
+                        src="{{Request::root().'/images/icons8-xml-file-64.png'}}" --}} {{-- alt="Image Description"
+                        style="width: 25px; height: 25px;">--}}
+                    {{-- </a>--}}
+                {{-- </div>--}} -->
+
+        </div>
+        <div class="navbar-nav-wrap-content-right">
+            <!-- Navbar -->
+            <ul class="navbar-nav align-items-center flex-row">
+
+                <li class="nav-item">
+                    <!-- Account -->
+                    <div class="hs-unfold d-flex align-items-center">
+                        <p id="name" class="bold pb-0 mb-0 mr-2"><strong>Vu Hoai Nam</strong></p>
+                        <a class="js-hs-unfold-invoker navbar-dropdown-account-wrapper mr-2" href="javascript:;"
+                           data-hs-unfold-target="#accountNavbarDropdown" data-hs-unfold-invoker="">
+                            <div class="avatar avatar-sm avatar-circle">
+                                <img class="avatar-img"
+                                     src="./assets/img/user.webp"
+                                     alt="Image Description">
+                                <span class="avatar-status avatar-sm-status avatar-status-success"> </span>
+                            </div>
+                        </a>
+
+
+                    </div>
+                    <!-- End Account -->
+                </li>
+            </ul>
+            <!-- End Navbar -->
+        </div>
+
+    </div>
+</header>
+<aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered navbar-dark navbar-vertical-aside-initialized">
+    <div class="navbar-vertical-container">
+        <div class="navbar-vertical-footer-offset">
+            <div class="navbar-brand-wrapper justify-content-between">
+                <!-- Logo -->
+
+                <a class="navbar-brand" href="#" aria-label="Front">
+                    <img class="navbar-brand-logo" src="./assets/img/logo.png" alt="Logo" />
+                    <img class="navbar-brand-logo-mini" src="./assets/img/logo.png" alt="Logo" />
+                </a>
+
+                <!-- End Logo -->
+            </div>
+
+            <!-- Content -->
+            <div class="navbar-vertical-content" style="font-size: 16px">
+                <ul class="navbar-nav nav-compact">
+                    <!-- Apps -->
+                    <!-- End Apps -->
+                    <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Apps">
+                            <i class="tio-apps nav-icon"></i>
+                            <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Quản lý hàng hóa
+                                <span class="badge badge-info badge-pill ml-1"></span>
+                            </span>
+                        </a>
+
+                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                            <li class="nav-item">
+                                <a class="nav-link " href="#" title="Kanban" target="_blank">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">Danh sách hàng hóa</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " target="_blank" href="" title="Calendar">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">
+                                        Thêm hàng mới <span class="badge badge-info badge-pill ml-1">New</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " target="_blank" href="#" title="Calendar">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">
+                                        Hàng cần nhập thêm
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " target="_blank" href="" title="Calendar">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">
+                                        Hàng hết hsd, hỏng
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Apps">
+                            <i class="tio-credit-card-add"></i>
+                            <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Quản lý khách hàng
+                                <span class="badge badge-info badge-pill ml-1"></span>
+                            </span>
+                        </a>
+
+                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                            <li class="nav-item">
+                                <a class="nav-link " href="#" title="Kanban" target="_blank">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">Danh sách khách hàng</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " target="_blank" href="#" title="Calendar">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">
+                                        Thêm khách hàng
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Apps">
+                            <i class="tio-protection"></i>
+                            <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Quản lý đại lý
+                                <span class="badge badge-info badge-pill ml-1"></span>
+                            </span>
+                        </a>
+
+                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                            <li class="nav-item">
+                                <a class="nav-link " href="#" title="Kanban" target="_blank">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">Danh sách đại lý</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " target="_blank" href="#" title="Calendar">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">
+                                        Thêm đại lý
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Content -->
+
+
+        </div>
+    </div>
+</aside>
+<main id="content" role="main" class="main">
+    <!-- Content -->
+    <div class="content container-fluid">
+
+        <div class="card" style="max-height: 100vh">
+            <!-- Header -->
+            <div class="card-header">
+                <div class="row justify-content-between align-items-center flex-grow-1">
+                    <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
+                        <form action="" method="GET">
+                            <!-- Search -->
+                            <div class="input-group input-group-merge input-group-flush">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="tio-search"></i>
+                                    </div>
+                                </div>
+                                <input id="datatableSearch" type="search" class="form-control"
+                                       value=""
+                                name="s"
+                                placeholder="Tìm kiếm bài viết"
+                                aria-label="Search users">
+                                <button type="submit" class="btn btn-primary pt-1 pb-1 pr-2 pl-2">Tìm kiếm</button>
+                            </div>
+                            <!-- End Search -->
+                        </form>
+                    </div>
+                    <div class="col-sm-6 col-md-4 mb-3 mb-sm-0 d-flex justify-content-end">
+                        <a href="https://rdone.net/admin/them-bai-viet" class="btn btn-primary pt-1 pb-1 pr-2 pl-2">Thêm mới</a>
+                    </div>
+                </div>
+                <!-- End Row -->
+            </div>
+            <!-- End Header -->
+
+            <!-- Table -->
+            <div class="table-responsive datatable-custom">
+                <div id="datatable_wrapper" class="dataTables_wrapper no-footer">
+
+                    <table id="datatable"
+                           class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table dataTable no-footer"
+                           role="grid" aria-describedby="datatable_info">
+                        <thead class="thead-light">
+                        <tr role="row">
+
+                            <th class="table-column-pl-0 sorting text-center p-1 align-middle" tabindex="0" aria-controls="datatable" rowspan="1"
+                                colspan="1" aria-label="Name: activate to sort column ascending">
+                                STT
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
+                                aria-label="Position: activate to sort column ascending">Ảnh
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
+                                aria-label="Country: activate to sort column ascending">Sản phẩm
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
+                                aria-label="Status: activate to sort column ascending">Số lượng
+                            </th>
+
+                            <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
+                                aria-label="Role: activate to sort column ascending">Hạn sử dụng
+                            </th>
+                            <th class="sorting_disabled" rowspan="1" colspan="1" aria-label=""
+                            >Hành động
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">Showing 1 to 15 of 24
+                        entries
+                    </div>
+                </div>
+            </div>
+            <!-- End Table -->
+
+            <!-- End Footer -->
+        </div>
+
+
+        <!-- End Row -->
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="row justify-content-between align-items-center">
+            <div class="col">
+                <p class="font-size-sm mb-0">
+                    © Front.
+                    <span class="d-none d-sm-inline-block">2020 Htmlstream.</span>
+                </p>
+            </div>
+            <div class="col-auto">
+                <div class="d-flex justify-content-end">
+                    <!-- List Dot -->
+                    <ul class="list-inline list-separator">
+                        <li class="list-inline-item">
+                            <a class="list-separator-link" href="#">FAQ</a>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <a class="list-separator-link" href="#">License</a>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <!-- Keyboard Shortcuts Toggle -->
+                            <div class="hs-unfold">
+                                <a
+                                        class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
+                                        href="javascript:;"
+                                        data-hs-unfold-options='{
+                              "target": "#keyboardShortcutsSidebar",
+                              "type": "css-animation",
+                              "animationIn": "fadeInRight",
+                              "animationOut": "fadeOutRight",
+                              "hasOverlay": true,
+                              "smartPositionOff": true
+                             }'
+                                        data-hs-unfold-target="#keyboardShortcutsSidebar"
+                                        data-hs-unfold-invoker=""
+                                >
+                                    <i class="tio-command-key"></i>
+                                </a>
+                            </div>
+                            <!-- End Keyboard Shortcuts Toggle -->
+                        </li>
+                    </ul>
+                    <!-- End List Dot -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer -->
+</main>
+
+<!-- JS Global Compulsory -->
+<script th:src="@{/assets/js/demo.js}"></script>
+<script th:src="@{/assets/js/theme.min.js}"></script>
+<script th:src="@{/assets/js/vendor.min.js}"></script>
+<script>
+    var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
+        .matches
+    tinymce.init({
+        selector: 'input#mytextarea',
+        plugins:
+            'print visualblocks image preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+        imagetools_cors_hosts: ['picsum.photos'],
+        menubar: 'file edit view insert format tools table help',
+        toolbar:
+            'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+        toolbar_sticky: true,
+        autosave_ask_before_unload: true,
+        autosave_interval: '30s',
+        autosave_prefix: '{path}{query}-{id}-',
+        autosave_restore_when_empty: false,
+        autosave_retention: '2m',
+        image_advtab: true,
+        content_css: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css',
+        formats: {
+
+            bold: {inline: 'strong', classes: 'bold'},
+            italic: {inline: 'i', classes: 'italic'},
+            underline: {inline: 'u', classes: 'underline', exact: true},
+            strikethrough: {inline: 'del'},
+            forecolor: {
+                inline: 'span',
+                classes: 'forecolor',
+                styles: {color: '%value'}
+            },
+            hilitecolor: {
+                inline: 'span',
+                classes: 'hilitecolor',
+                styles: {backgroundColor: '%value'}
+            },
+            custom_format: {
+                block: 'h1',
+                attributes: {title: 'Header'},
+                styles: {color: 'red'}
+            }
+        },
+        link_list: [
+            {title: 'My page 1', value: 'https://www.tiny.cloud'},
+            {title: 'My page 2', value: 'http://www.moxiecode.com'}
+        ],
+        image_list: [
+            {title: 'My page 1', value: 'https://www.tiny.cloud'},
+            {title: 'My page 2', value: 'http://www.moxiecode.com'}
+        ],
+        image_class_list: [
+            {title: 'None', value: ''},
+            {title: 'Some class', value: 'class-name'}
+        ],
+        importcss_append: true,
+        file_picker_callback: function (callback, value, meta) {
+            /* Provide file and text for the link dialog */
+            if (meta.filetype === 'file') {
+                callback('https://www.google.com/logos/google.jpg', {
+                    text: 'My text'
+                })
+            }
+
+            /* Provide image and alt text for the image dialog */
+            if (meta.filetype === 'image') {
+                callback('https://www.google.com/logos/google.jpg', {
+                    alt: 'My alt text'
+                })
+            }
+
+            /* Provide alternative source and posted for the media dialog */
+            if (meta.filetype === 'media') {
+                callback('movie.mp4', {
+                    source2: 'alt.ogg',
+                    poster: 'https://www.google.com/logos/google.jpg'
+                })
+            }
+        },
+        templates: [
+            {
+                title: 'New Table',
+                description: 'creates a new table',
+                content:
+                    '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>'
+            },
+            {
+                title: 'Starting my story',
+                description: 'A cure for writers block',
+                content: 'Once upon a time...'
+            },
+            {
+                title: 'New list with dates',
+                description: 'New List with dates',
+                content:
+                    '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>'
+            }
+        ],
+        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+        height: 1000,
+        image_caption: true,
+        quickbars_selection_toolbar:
+            'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+        noneditable_noneditable_class: 'mceNonEditable',
+        toolbar_mode: 'sliding',
+        contextmenu: 'link image imagetools table',
+        skin: useDarkMode ? 'oxide-dark' : 'oxide',
+        content_css: useDarkMode ? 'dark' : 'default',
+        style_formats: [
+            {
+                title: 'Headers', items: [
+                    {title: 'h1', block: 'h1'},
+                    {title: 'h2', block: 'h2'},
+                    {title: 'h3', block: 'h3'},
+                    {title: 'h4', block: 'h4'},
+                    {title: 'h5', block: 'h5'},
+                    {title: 'h6', block: 'h6'}
+                ]
+            },
+
+            {
+                title: 'Blocks', items: [
+                    {title: 'p', block: 'p'},
+                    {title: 'div', block: 'div'},
+                    {title: 'pre', block: 'pre'}
+                ]
+            },
+
+            {
+                title: 'Containers', items: [
+                    {title: 'section', block: 'section', wrapper: true, merge_siblings: false},
+                    {title: 'article', block: 'article', wrapper: true, merge_siblings: false},
+                    {title: 'blockquote', block: 'blockquote', wrapper: true},
+                    {title: 'hgroup', block: 'hgroup', wrapper: true},
+                    {title: 'aside', block: 'aside', wrapper: true},
+                    {title: 'figure', block: 'figure', wrapper: true}
+                ]
+            }
+        ],
+        visualblocks_default_state: true,
+        end_container_on_empty_block: true,
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+    });
+</script>
+<script>
+    // valitade password
+    var myInput = document.getElementById("password");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+
+    // When the user clicks on the password field, show the message box
+    myInput.onfocus = function () {
+        document.getElementById("message").style.display = "block";
+    }
+
+    // When the user clicks outside of the password field, hide the message box
+    myInput.onblur = function () {
+        document.getElementById("message").style.display = "none";
+    }
+
+    // When the user starts to type something inside the password field
+    myInput.onkeyup = function () {
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if (myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+        } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if (myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+        } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+        }
+
+        // Validate length
+        if (myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+        } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+        }
+    }
+</script>
+<script>
+    $('.js-navbar-vertical-aside-menu-link ').click(function () {
+        console.log("click")
+        $(this).parent().children('.nav-sub').toggleClass('d-block')
+    })
+</script>
+
+<script>
+    var loadFile = function (e) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    };
+    var deleteImg = function (e) {
+        var output = document.getElementById('output');
+        output.src = '';
+    };
+
+    function toSlug(str) {
+        // Chuyển hết sang chữ thường
+        str = str.toLowerCase();
+
+        // xóa dấu
+        str = str
+            .normalize('NFD') // chuyển chuỗi sang unicode tổ hợp
+            .replace(/[\u0300-\u036f]/g, ''); // xóa các ký tự dấu sau khi tách tổ hợp
+
+        // Thay ký tự đĐ
+        str = str.replace(/[đĐ]/g, 'd');
+
+        // Xóa ký tự đặc biệt
+        str = str.replace(/([^0-9a-z-\s])/g, '');
+
+        // Xóa khoảng trắng thay bằng ký tự -
+        str = str.replace(/(\s+)/g, '-');
+
+        // Xóa ký tự - liên tiếp
+        str = str.replace(/-+/g, '-');
+
+        // xóa phần dư - ở đầu & cuối
+        str = str.replace(/^-+|-+$/g, '');
+
+        // return
+        return str;
+    }
+
+    var onChangeInput = function (e, id) {
+        var ele = document.getElementById(id);
+        console.log(event.target.value);
+        document.getElementById("slug").value = toSlug(event.target.value).split(' ').join('-');
+        document.getElementById("metaTitle").value = event.target.value;
+    }
+    var onChangeInput_edit = function (e, id) {
+        if (confirm("Bạn có muốn thay đổi slug") == true) {
+            var ele = document.getElementById(id);
+            console.log(event.target.value);
+            document.getElementById("slug").value = toSlug(event.target.value).split(" ").join("-");
+        }
+        document.getElementById("metaTitle").value = event.target.value;
+    }
+</script>
+<!-- IE Support -->
+<script>
+    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+        document.write(
+            '<script src="../assets/vendor/babel-polyfill/polyfill.min.js"><\/script>'
+        )
+</script>
+<script>
+    const tieu_de = document.querySelector('#tieu_de')
+    const mo_ta = document.getElementById('mo_ta')
+    const count = document.getElementById('count')
+    const count1 = document.getElementById('count1')
+    // const max =60;
+    console.log();
+    count.innerHTML = tieu_de.value.length;
+    count1.innerHTML = mo_ta.value.length;
+    tieu_de.onkeyup = (e) => {
+        // if(e.target.value.length > max){
+        //     alert("Bạn nhập quá số ký tự quy định");
+        // }
+        count.innerHTML =  e.target.value.length;
+    };
+
+    mo_ta.onkeyup = (e) => {
+
+        count1.innerHTML =  e.target.value.length;
+    };
+</script>
+
+
+<!-- JS Front -->
+<script src="./assets/js/hs.core.js"></script>
+</body>
+
+</html>

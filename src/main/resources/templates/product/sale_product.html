@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Meta -->
+    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta name="author" content="BootstrapDash">
+
+    <title>CityMart: Nơi mua sắm đáng tin cậy – Bạn của mọi nhà</title>
+
+    <!-- vendor css -->
+    <link href="../lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../lib/typicons.font/typicons.css" rel="stylesheet">
+
+    <!-- azia CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/azia.css}">
+
+</head>
+<body>
+
+<div class="az-header">
+    <div class="container">
+        <div class="az-header-left">
+            <a th:href="@{/list-product}" class="az-logo"><span></span> CityMart</a>
+            <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
+        </div><!-- az-header-left -->
+        <div class="az-header-menu">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a th:href="@{/list-user}" class="nav-link"> Nhân viên</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/list-product}" class="nav-link"> Hàng hóa</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/list-supplier}" class="nav-link"> Nhà cung cấp</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/list-bill}" class="nav-link"> Hóa đơn</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/list-card}" class="nav-link"> Khách hàng</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/logout}" class="btn btn-danger "> Đăng xuất</a>
+                </li>
+            </ul>
+        </div><!-- az-header-menu -->
+    </div><!-- container -->
+</div><!-- az-header -->
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+        <div class="az-content-left az-content-left-components">
+            <div class="component-item">
+                <label>Danh mục</label>
+                <nav class="nav flex-column">
+                    <a th:href="@{/list-bill}" class="nav-link">Danh sách hóa đơn</a>
+                    <a th:href="@{/import-count}" class="nav-link">Thêm hóa đơn nhập</a>
+                    <a th:href="@{/sale-count}" class="nav-link">Thêm hóa đơn bán</a>
+                </nav>
+
+            </div><!-- component-item -->
+
+        </div><!-- az-content-left -->
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+            <h2 class="az-content-title">Hóa đơn bán hàng</h2>
+            <form th:action="@{/add-bill-sale}" th:object="${bill}" method="POST" multiple="">
+                <div class="row row-sm">
+                    <div class="col-lg">
+                        <label>Nhân viên làm hóa đơn</label>
+                        <select class="form-control select2" th:field="*{user_hd}" required>
+                            <option label="Choose one" value=""></option>
+                            <th:block th:each="u : ${list_user}">
+                                <option th:value="${u.id}" th:utext="${u.getUsername()}"></option>
+                            </th:block>
+                        </select>
+                    </div><!-- col -->
+                    <div class="col-lg">
+                        <label>Thẻ khách hàng</label>
+                        <select class="form-control select2" th:field="*{card_bill}">
+                            <option label="Choose one" value=""></option>
+                            <th:block th:each="c : ${list_card}">
+                                <option th:value="${c.id}" th:utext="${c.tenKH}"></option>
+                            </th:block>
+                        </select>
+                    </div><!-- col -->
+                </div>
+                <div class="az-content-label mg-b-5" style="margin-top: 30px">Chi tiết sản phẩm bán</div>
+
+                <th:block th:object="${productList}">
+                    <th:block th:each="p, st : *{products}">
+                        <div class="row row-sm">
+                            <div class="col-sm">
+                                <label>Tên hàng</label>
+                                <select class="form-control select2" th:field="*{products[__${st.index}__].id}" required>
+                                    <option label="Choose one" value="0"></option>
+                                    <th:block th:each="pro : ${product}">
+                                        <option th:value="${pro.getId()}" th:utext="${pro.getTenHang()}"></option>
+                                    </th:block>
+                                </select>
+                            </div>
+                            <div class="col-sm">
+                                <label>Số lượng</label>
+                                <input class="form-control" style="border-radius: 10px"
+                                       th:field="*{products[__${st.index}__].soLuong}"
+                                       placeholder=""
+                                       type="text" required>
+                            </div>
+
+                        </div>
+                    </th:block>
+                </th:block>
+                <button type="submit" style="border-radius: 10px; margin-top: 30px" class="btn btn-primary">Save
+                    changes
+                </button>
+            </form>
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+</body>
+
+</html>
